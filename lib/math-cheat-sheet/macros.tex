@@ -1,5 +1,21 @@
+% Frames
+\newmdenv[
+  frametitlebackgroundcolor=LightGrey,%
+  frametitlerule=true,%
+  backgroundcolor=LighterGrey,%
+  linecolor=LineLightGrey%
+]{procedureFrame}
+
+% Environments
 \newcounter{procedure}[section]
-\newenvironment{procedure}[1][]{\refstepcounter{procedure}\par \GetTranslation{procedure}~\theprocedure. #1}{}
+\newenvironment{procedure}[1][]{
+  \refstepcounter{procedure}
+  \begin{procedureFrame}[frametitle=\GetTranslation{procedure}~\theprocedure]
+}{
+  \end{procedureFrame}
+}
 
 \newcounter{example}[section]
-\newenvironment{example}[1][]{\refstepcounter{example}\par Vorgehen~\theexample. #1}{}
+\newenvironment{example}[1][]{
+  \refstepcounter{example}\par Vorgehen~\theexample. #1
+}{}
