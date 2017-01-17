@@ -3,3 +3,15 @@
 \definecolor{LightGrey}{HTML}{DDDDDD}
 \definecolor{LineLightGrey}{HTML}{CCCCCC}
 \definecolor{TextLightGrey}{HTML}{999999}
+
+% Define header and footer
+\pagestyle{scrheadings}
+\renewcommand*\partpagestyle{scrheadings}
+\renewcommand*\chapterpagestyle{scrheadings}
+\automark{chapter}
+\ihead{\leftmark}
+\ohead{\GetTranslation{title}}
+\ifoot{}
+\ofoot{\thepage}
+\cfoot{}
+\chead{}
