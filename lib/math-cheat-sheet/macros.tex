@@ -22,10 +22,14 @@
   \end{procedureFrame}
 }
 
-\newcounter{example}[section]
-\newenvironment{example}[1][]{
-  \refstepcounter{example}
-  \begin{exampleFrame}[frametitle=\GetTranslation{example}~\theprocedure]
-}{
-  \end{exampleFrame}
-}
+\ifexamples
+  \newcounter{example}[section]
+  \newenvironment{example}[1][]{
+    \refstepcounter{example}
+    \begin{exampleFrame}[frametitle=\GetTranslation{example}~\theprocedure]
+  }{
+    \end{exampleFrame}
+  }
+\else
+  \excludecomment{example}
+\fi
