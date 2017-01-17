@@ -1,11 +1,11 @@
 % Define document class
 \documentclass{scrreprt}
 
+% Load vars
+\input{vars}
+
 % Use math-cheat-sheet package
 \usepackage{lib/math-cheat-sheet}
-
-% Define environment
-\newcommand*{\sourcePath}{src}
 
 % Create document
 \begin{document}
@@ -13,5 +13,5 @@
   \selectlanguage{ngerman}
 
   % Include all branches
-  \input{\sourcePath/branches.de}
+  \input{\varSourcePath/branches.de}
 \end{document}
