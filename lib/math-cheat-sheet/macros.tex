@@ -6,6 +6,13 @@
   linecolor=LineLightGrey%
 ]{procedureFrame}
 
+\newmdenv[
+  frametitlebackgroundcolor=LightGrey,%
+  frametitlerule=true,%
+  backgroundcolor=LighterGrey,%
+  linecolor=LineLightGrey%
+]{exampleFrame}
+
 % Environments
 \newcounter{procedure}[section]
 \newenvironment{procedure}[1][]{
@@ -17,5 +24,8 @@
 
 \newcounter{example}[section]
 \newenvironment{example}[1][]{
-  \refstepcounter{example}\par Vorgehen~\theexample. #1
-}{}
+  \refstepcounter{example}
+  \begin{exampleFrame}[frametitle=\GetTranslation{example}~\theprocedure]
+}{
+  \end{exampleFrame}
+}
