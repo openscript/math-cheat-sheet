@@ -2,21 +2,61 @@
 Das gaußsche Eliminationsverfahren ist ein Algorithmus zum Lösen von linearen Gleichungssystemen.
 
 \begin{procedure}
+Folgendes Vorgehen beschreibt das Lösen von linearen Gleichungssystemen mit dem gaußschen Eliminationsverfahren:
 \begin{enumerate}
   \item Umwandeln in Matrizen-Form
-  \item Unter der Hauptdiagonale die Koeffizienten Null setzen
+  \item Unter der Hauptdiagonale die Koeffizienten Null setzen (Dreiecksform)
   \begin{enumerate}
     \item Vertauschen der Zeilen
-    \item Multiplizieren einer Zeile
-    \item Addieren einer Zeile
+    \item Multiplizieren einer Zeile mit einer Anderen
+    \item Addieren einer Zeile mit einer Anderen
   \end{enumerate}
   \item Auflösen der Gleichungen von unten nach oben
 \end{enumerate}
 \end{procedure}
 
 \begin{example}
-  Test
+  Das folgende Gleichungssystem soll gelöst werden.
+  \begin{equation*}
+    \begin{array}{rcrcrcr r}
+      2x &+& y &-& z &=& 8 & L_1\\
+      -3x &-& y &+& 2z &=& -11 & L_2 \\
+      -2x &+& y &+& 2z &=& -3 & L_3
+    \end{array}
+  \end{equation*}
 \begin{solution}
-  huhu
+  \begin{equation*}
+    \text{Matrix:}\left[\begin{array}{rrr|r}
+      2 & 1 & -1 & 8 \\
+      -3 & -1 & 2 & -11 \\
+      -2 & 1 & 2 & -3
+    \end{array}\right]\quad\text{Zeilenoperationen:}
+    \begin{array}{rcrcr}
+      L_2 &+& \frac{3}{2}L_1 &\to& L_2 \\
+      L_3 &+& L_1 &\to& L_3
+    \end{array}
+  \end{equation*}
+  \begin{equation*}
+    \text{Matrix:}\left[\begin{array}{rrr|r}
+      2 & 1 & -1 & 8 \\
+      0 & \frac{1}{2} & \frac{1}{2} & 1 \\
+      0 & 2 & 1 & 5
+    \end{array}\right]\quad\text{Zeilenoperationen:}
+    \begin{array}{rcrcr}
+      L_3 &+& -4L_2 &\to& L_3
+    \end{array}
+  \end{equation*}
+  \begin{equation*}
+    \text{Matrix:}\left[\begin{array}{rrr|r}
+      2 & 1 & -1 & 8 \\
+      0 & \frac{1}{2} & \frac{1}{2} & 1 \\
+      0 & 0 & -1 & 1
+    \end{array}\right]\quad\text{Ergibt:}
+    \begin{array}{rcr}
+      x &=& 2\\
+      y &=& 3\\
+      z &=& -1
+    \end{array}
+  \end{equation*}
 \end{solution}
 \end{example}
